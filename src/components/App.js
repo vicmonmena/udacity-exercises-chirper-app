@@ -12,10 +12,25 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Dashboard />
+        { this.props.loading === true 
+          ? null 
+          : <Dashboard /> 
+        }
       </div>
     )
   }
 }
 
-export default connect()(App)
+/**
+ * Adding loading property to App component. 
+ * It allows to render UI just when initial data have been loaded.
+ * It requires to hook our component by using "connect".
+ * @param {*} authedUser
+ */
+const mapStateToProps = ({ authedUser }) => {
+  return {
+    loading: authedUser === null
+  }
+}
+
+export default connect(mapStateToProps)(App)
