@@ -25,7 +25,7 @@ class App extends Component {
   render() {
     if (this.state.hasError) {
       // You can render any custom fallback UI
-      return (<div><Error /></div>);
+      return (<div><Error message="There is a problem trying to load tweets" /></div>);
     }
     return (
       <div>
