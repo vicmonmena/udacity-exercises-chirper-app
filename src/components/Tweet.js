@@ -13,9 +13,12 @@ class Tweet extends Component {
 
 const mapStateToProps = ({ tweets, users, authedUser }, { id }) => {
   const tweet = tweets[id];
+  const parentTweet = tweet ? tweets[tweet.replyingTo] : null;
   return {
     authedUser,
-    tweet: formatTweet(tweet, users[tweet.author], authedUser, tweets[tweet.replyingTo])
+    tweet: tweet ? 
+      formatTweet(tweet, users[tweet.author], authedUser, parentTweet)
+      : null
   }
   
 }
