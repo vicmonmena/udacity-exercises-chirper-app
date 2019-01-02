@@ -27,7 +27,7 @@ export function toggleTweet({ id, authedUser, hasLiked }) {
   }
 }
 
-export function addTweet({tweet}) {
+export function addTweet(tweet) {
   return {
     type: ADD_TWEET,
     tweet
